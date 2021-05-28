@@ -1,0 +1,11 @@
+apiVersion: v1 #Version of the kubernetes Api Version / v1, apps/v1
+kind: Pod # Object type / Pod (v1), Service (v1), ReplicaSet (apps/v1), Deployment (apps/v1)
+metadata: # Metadata about the object / Only allows name and labels as children
+  name: myapp-pod
+  labels: # Any keyValue we want to identify the pod
+    app: myapp
+    type: front-end
+spec: # Object Specification / This will be different for each object type
+  containers: # Array / Allows multiple containers
+    - name: nginx-container # - refers to the item in list
+      image: nginx
