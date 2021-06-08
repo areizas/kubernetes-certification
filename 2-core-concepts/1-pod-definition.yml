@@ -9,3 +9,17 @@ spec: # Object Specification / This will be different for each object type
   containers: # Array / Allows multiple containers
     - name: nginx-container # - refers to the item in list
       image: nginx
+      ports:
+        - containerPod: 8080
+      env:
+        - name: ENV_VARIABLE_NAME
+          value: "envVariableValue"
+        - name: ENV_VARIABLE_NAME_CONFIGMAP
+          valueFrom:
+            configMapKeyRef:
+        - name: ENV_VARIABLE_NAME_SECRET
+          valueFrom:
+            secretKeyRef: 
+      envFrom:
+      - configMapRef:
+          name: configMap-name
