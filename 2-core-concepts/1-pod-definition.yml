@@ -23,3 +23,8 @@ spec: # Object Specification / This will be different for each object type
       envFrom:
       - configMapRef:
           name: configMap-name
+      - secretRef:
+          name: secret-name
+      - secretRef:
+          name: secret-name2
+          key: specific-secret
