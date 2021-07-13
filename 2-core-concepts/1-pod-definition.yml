@@ -6,6 +6,23 @@ metadata: # Metadata about the object / Only allows name and labels as children
     app: myapp
     type: front-end
 spec: # Object Specification / This will be different for each object type
+  #   tolerations:
+  #   - key: "app"
+  #     operator: "equal"
+  #     value: "blue"
+  #     effect: "NoSchedule"
+  # nodeSelector:
+  #   nodeLabelKey: nodeLabelValue # kubectl label nodes <node-name> <label-key>=<label-value>
+  # affinity:
+  #   nodeAffinity:
+  #     raquiredDuringSchedulingIngnoredDuringExecution:
+  #       nodeSelectorTerms:
+  #       - matchExpressions:
+  #         - key: size #Nodetag key
+  #           operator: In # In, NotIn, Exists, ...
+  #           values:
+  #           - Large
+  #           - Medium
   containers: # Array / Allows multiple containers
     - name: nginx-container # - refers to the item in list
       image: nginx
@@ -28,3 +45,8 @@ spec: # Object Specification / This will be different for each object type
       - secretRef:
           name: secret-name2
           key: specific-secret
+      resources:
+        limits:
+          memory: 20Mi
+        requests:
+          memory: 5Mi
